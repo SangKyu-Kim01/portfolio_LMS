@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bootstrap demo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    </head>
+
+    <body>
+
+    <nav class="navbar bg-warning">
+
+        <div class="container-fluid d-flex justify-content-center">
+            <div class ="row text-center ">
+                <h2 class="text-black-50"> Welcome to Montreal Library</h2>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Service Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Registration</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+        <div class="container-fluid d-flex justify-content-center align-items-center">
+<!--            <div class="card px-2 py-4 bg-warning mt-3">-->
+<!--                <h2> Welcome to Montreal Library</h2>-->
+<!--            </div>-->
+
+<!--            <hr>-->
+            <div id="loginbox" style="margin-top: 50px;" class="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-2 mb-5">
+                <div class="card border-info">
+                    <div class="card-header bg-info">
+                        <h3> Sign In </h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-text">
+
+                            <!-- Login Form -->
+                            <form action="#" th:action="@{/authenticateTheUser}" method="post" class="form-horizontal">
+
+                                <!-- Place for messages: error, alert etc ... -->
+                                <div class="form-group">
+                                    <div class="col-xs-15">
+                                        <div>
+                                            <!-- Check for login error -->
+
+                                            <div th:if="${param.error}">
+
+                                                <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+                                                    Invalid username and password.
+                                                </div>
+
+                                            </div>
+
+                                            <!-- Check for logout-->
+                                            <div th:if="${param.logout}">
+                                                <div class="alert alert-success col-xs-offset-1 col-xs-10">
+                                                    You have been logged out.
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- User name -->
+                                <div class="form-floating my-3">
+                                    <input type="text" name="username" placeholder="username" id="floatName" class="form-control" />
+                                    <label for="floatName">User Name</label>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="form-floating my-4">
+                                    <input type="password" name="password" placeholder="password" id="floatPw" class="form-control" />
+                                    <label for ="floatPw">Password</label>
+                                </div>
+
+                                <!-- Login/Submit Button -->
+                                <div style="margin-top: 10px;" class="form-group d-flex justify-content-end mx-auto">
+                                    <div class="col-auto controls">
+                                        <button type="submit" class="btn btn-success">Login</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer >
+            <div class = "container-fluid bg-secondary text-info text-center py-3 mt-4 ">
+                &copy; 2023 Copyright - SK & K
+            </div>
+        </footer>
+
+
+
+    </body>
+</html>
